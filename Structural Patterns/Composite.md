@@ -10,13 +10,10 @@ It is particularly useful when you want clients to be able to ignore the differe
 
 ```mermaid
 classDiagram
-    direction LR
+    direction TB
 
-    class Component {
+    class IComponent {
         +Operation(): String
-        +Add(component: Component): void
-        +Remove(component: Component): void
-        +GetChild(index: int): Component
     }
 
     class Leaf {
@@ -25,19 +22,19 @@ classDiagram
 
     class Composite {
         +Operation(): String
-        +Add(component: Component): void
-        +Remove(component: Component): void
-        +GetChild(index: int): Component
+        +Add(component: IComponent): void
+        +Remove(component: IComponent): void
+        +GetChild(index: int): IComponent
     }
 
-    Component <|-- Leaf
-    Component <|-- Composite
-    Composite o--> Component : contains
+    IComponent <|-- Leaf
+    IComponent <|-- Composite
+    Composite o--> IComponent : contains
 ```
 
 ## Components
 
-* **Component**: Defines the interface for objects in the composition. It can be an interface or an abstract class with some methods defined.
+* **IComponent**: Defines the interface for objects in the composition. It can be an interface or an abstract class with some methods defined.
 * **Leaf**: Represents the leaf object in the composition. It has no children and implements the component interface.
 * **Composite**: It has child components, and it implements the component interface.
 

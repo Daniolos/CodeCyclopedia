@@ -11,15 +11,12 @@ The `IComponent` interface provides a common interface for all graphic objects.
 public interface IComponent
 {
     void Draw();
-    void Add(IComponent component);
-    void Remove(IComponent component);
-    IComponent GetChild(int index);
 }
 ```
 
 ## Primitive Graphic Classes
 
-We have two primitive graphics classes: Circle and Rectangle.
+We have two primitive graphics classes: `Circle` and `Rectangle`.
 
 ```C#
 public class Circle : IComponent
@@ -28,21 +25,6 @@ public class Circle : IComponent
     {
         Console.WriteLine("Drawing a circle");
     }
-
-    public void Add(IComponent component)
-    {
-        throw new NotSupportedException("Cannot add to a primitive graphic");
-    }
-
-    public void Remove(IComponent component)
-    {
-        throw new NotSupportedException("Cannot remove from a primitive graphic");
-    }
-
-    public IComponent GetChild(int index)
-    {
-        throw new NotSupportedException("Primitive graphic does not support this operation");
-    }
 }
 
 public class Rectangle : IComponent
@@ -50,21 +32,6 @@ public class Rectangle : IComponent
     public void Draw()
     {
         Console.WriteLine("Drawing a rectangle");
-    }
-
-    public void Add(IComponent component)
-    {
-        throw new NotSupportedException("Cannot add to a primitive graphic");
-    }
-
-    public void Remove(IComponent component)
-    {
-        throw new NotSupportedException("Cannot remove from a primitive graphic");
-    }
-
-    public IComponent GetChild(int index)
-    {
-        throw new NotSupportedException("Primitive graphic does not support this operation");
     }
 }
 ```
