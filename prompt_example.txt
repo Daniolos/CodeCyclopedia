@@ -1,0 +1,77 @@
+I want you to create an md page for the PATTERN pattern in the same style as I did it in the following example:
+"""
+# Factory Pattern Example in C#
+
+In this example, the Factory Method pattern is used to create an `IVehicle` object. This pattern provides an interface for creating objects but allows subclasses to alter the type of objects that will be created.
+
+## The IVehicle Interface
+
+The `IVehicle` interface defines the properties that all vehicle types must implement.
+
+```C#
+public interface IVehicle
+{
+    public string Make { get; set; }
+    public string Model { get; set; }
+}
+```
+
+## Derived Vehicle Classes
+
+We have two derived vehicle classes: Car and Truck.
+
+```C#
+public class Car : IVehicle
+{
+    public string Make { get; set; }
+    public string Model { get; set; }
+    public int Doors { get; set; }
+}
+
+public class Truck : IVehicle
+{
+    public string Make { get; set; }
+    public string Model { get; set; }
+    public float PayloadCapacity { get; set; }
+}
+```
+
+## The VehicleFactory Class
+
+The `VehicleFactory` class has a static method called `CreateVehicle` that takes a string as an argument and returns an `IVehicle` object based on that string.
+
+```C#
+public static class VehicleFactory
+{
+    public static IVehicle CreateVehicle(string vehicleType)
+    {
+        switch (vehicleType)
+        {
+            case "Car":
+                return new Car { Make = "Honda", Model = "Civic", Doors = 4 };
+            case "Truck":
+                return new Truck { Make = "Ford", Model = "F-150", PayloadCapacity = 3300 };
+            default:
+                throw new ArgumentException("Invalid vehicle type");
+        }
+    }
+}
+```
+
+## Usage
+
+```C#
+class Program
+{
+    static void Main(string[] args)
+    {
+        var car = VehicleFactory.CreateVehicle("Car");
+        var truck = VehicleFactory.CreateVehicle("Truck");
+    }
+}
+```
+
+In this example, we're using a simple factory class with a static method to produce `IVehicle` objects.
+The actual type of `IVehicle` whether it's a `Car` or a `Truck` is determined at runtime based on the argument passed to the `CreateVehicle` method.
+
+"""

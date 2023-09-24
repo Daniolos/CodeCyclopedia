@@ -10,7 +10,7 @@ The Decorator Pattern is a structural design pattern that enables you to add new
 classDiagram
     direction LR
 
-    class Component {
+    class IComponent {
         +operation(): String
     }
 
@@ -19,7 +19,7 @@ classDiagram
     }
 
     class Decorator {
-        -component: Component
+        -component: IComponent
         +operation(): String
     }
 
@@ -33,11 +33,11 @@ classDiagram
         +operation(): String
     }
 
-    Component <|-- ConcreteComponent
-    Component <|-- Decorator
-    Decorator <--| ConcreteDecoratorA
-    Decorator <--| ConcreteDecoratorB
-    Decorator o-- Component : has-a
+    IComponent <|-- ConcreteComponent
+    IComponent <|-- Decorator
+    Decorator <|-- ConcreteDecoratorA
+    Decorator <|-- ConcreteDecoratorB
+    Decorator o-- IComponent : has-a
 ```
 
 ## Components

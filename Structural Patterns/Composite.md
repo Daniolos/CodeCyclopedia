@@ -10,7 +10,7 @@ It is particularly useful when you want clients to be able to ignore the differe
 
 ```mermaid
 classDiagram
-    direction TB
+    direction LR
 
     class Component {
         +Operation(): String

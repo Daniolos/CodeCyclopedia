@@ -1,4 +1,4 @@
-I want you to create an md page for the PATTERN pattern in the same style as I did it in the following example. Please generate the md page in txt format so i can copy everything into my editor:
+I want you to create an md page for the PATTERN pattern in the same style as I did it in the following example:
 """
 # Factory Pattern Overview
 
